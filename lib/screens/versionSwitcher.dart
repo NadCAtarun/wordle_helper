@@ -5,11 +5,13 @@ import 'package:wordle_helper/constants.dart';
 import 'package:wordle_helper/version.dart';
 
 class VersionSwitcher extends StatelessWidget {
-  final void Function(Version)? onChoice;
+  final void Function(Version) onChoice;
+  final Version currentVersion;
 
   const VersionSwitcher({
     Key? key,
-    this.onChoice,
+    required this.onChoice,
+    required this.currentVersion,
   }) : super(key: key);
 
   @override
@@ -26,7 +28,11 @@ class VersionSwitcher extends StatelessWidget {
         itemCount: kVersions.length,
         itemBuilder: (context, index) {
           Version version = kVersions[index];
+          bool selected = currentVersion == version;
           return ListTile(
+            autofocus: currentVersion == version,
+            tileColor: selected ? const Color(0xFF243A05) : null,
+            subtitle: selected ? const Text('Currently using') : null,
             leading: Text(
               version.flag,
               style: const TextStyle(
@@ -45,11 +51,11 @@ class VersionSwitcher extends StatelessWidget {
                 launchUrl(Uri.parse(version.url));
               },
             ),
-            onTap: () {
-              if (onChoice != null) {
-                onChoice!(version);
-              }
-            },
+            onTap: selected
+                ? null
+                : () {
+                    onChoice(version);
+                  },
           );
         },
       ),

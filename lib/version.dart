@@ -2,7 +2,7 @@ enum Version {
   englishNYT(
     'en',
     '🇺🇸',
-    'Official by New York Times',
+    'Official @nytimes',
     'https://www.nytimes.com/games/wordle/index.html',
   ),
   frenchLouan(

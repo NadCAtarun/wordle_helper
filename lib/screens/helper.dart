@@ -57,6 +57,7 @@ class _HelperState extends State<Helper> {
                       loadSolutions();
                       Navigator.pop(context);
                     },
+                    currentVersion: version,
                   ),
                 ),
               );
