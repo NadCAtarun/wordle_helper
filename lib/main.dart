@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wordle_helper/helper.dart';
+import 'package:wordle_helper/screens/helper.dart';
+import 'package:wordle_helper/screens/versionSwitcher.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wordle Helper',
       theme: ThemeData.dark(),
-      home: const Helper(),
+      initialRoute: '/',
+      routes: {
+        Helper.routeName: (context) => const Helper(),
+        VersionSwitcher.routeName: (context) => const VersionSwitcher(),
+      },
     );
   }
 }
