@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wordle_helper/constants.dart';
 import 'package:wordle_helper/screens/versionSwitcher.dart';
 import 'package:wordle_helper/version.dart';
 import 'package:wordle_helper/words.dart';
@@ -40,7 +41,10 @@ class _HelperState extends State<Helper> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Wordle Helper'),
+        title: Text(
+          'Wordle Helper',
+          style: kAppBarTitleStyle,
+        ),
         actions: [
           IconButton(
             onPressed: () {

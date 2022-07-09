@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wordle_helper/constants.dart';
 import 'package:wordle_helper/version.dart';
 
 class VersionSwitcher extends StatelessWidget {
@@ -15,7 +17,10 @@ class VersionSwitcher extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Choose a Wordle version'),
+        title: Text(
+          'Choose a Wordle',
+          style: kAppBarTitleStyle,
+        ),
       ),
       body: ListView.builder(
         itemCount: kVersions.length,
@@ -24,9 +29,14 @@ class VersionSwitcher extends StatelessWidget {
           return ListTile(
             leading: Text(
               version.flag,
-              style: const TextStyle(fontSize: 30.0),
+              style: const TextStyle(
+                fontSize: 30.0,
+              ),
             ),
-            title: Text(version.fullName),
+            title: Text(
+              version.fullName,
+              style: GoogleFonts.outfit().copyWith(fontSize: 20.0),
+            ),
             trailing: IconButton(
               iconSize: 30.0,
               color: Colors.blue,

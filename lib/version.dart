@@ -2,13 +2,13 @@ enum Version {
   englishNYT(
     'en',
     '🇺🇸',
-    'New York Times (official)',
+    'Official by New York Times',
     'https://www.nytimes.com/games/wordle/index.html',
   ),
   frenchLouan(
     'fr',
     '🇫🇷',
-    'French version (by @louanben)',
+    'French version @louanben',
     'https://wordle.louan.me/',
   );
 
