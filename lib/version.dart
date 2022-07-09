@@ -1,10 +1,21 @@
 enum Version {
-  englishNYT('en', 'https://www.nytimes.com/games/wordle/index.html'),
-  frenchLouan('fr', 'https://wordle.louan.me/');
+  englishNYT(
+    'en',
+    'New York Times (official)',
+    'https://www.nytimes.com/games/wordle/index.html',
+  ),
+  frenchLouan(
+    'fr',
+    'French version (by @louanben)',
+    'https://wordle.louan.me/',
+  );
 
-  const Version(this.prefix, this.url);
+  const Version(this.prefix, this.fullName, this.url);
   final String prefix;
+  final String fullName;
   final String url;
 }
 
-const kDefaultVersion = Version.englishNYT;
+const Version kDefaultVersion = Version.englishNYT;
+
+const List<Version> kVersions = Version.values;

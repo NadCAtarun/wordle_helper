@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:wordle_helper/version.dart';
 
 class VersionSwitcher extends StatelessWidget {
   static const String routeName = '/switch';
 
-  const VersionSwitcher({Key? key}) : super(key: key);
+  final void Function(Version)? onChoice;
+
+  const VersionSwitcher({
+    Key? key,
+    this.onChoice,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +19,21 @@ class VersionSwitcher extends StatelessWidget {
         centerTitle: true,
         title: const Text('Choose a Wordle version'),
       ),
-      body: Container(),
+      body: ListView.builder(
+        itemCount: kVersions.length,
+        itemBuilder: (context, index) {
+          Version version = kVersions[index];
+          return ListTile(
+            title: Text(version.fullName),
+            trailing: IconButton(
+              icon: const Icon(Icons.link),
+              onPressed: () {
+                launchUrl(Uri.parse(version.url));
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
