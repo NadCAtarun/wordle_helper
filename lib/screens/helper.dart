@@ -61,7 +61,11 @@ class _HelperState extends State<Helper> {
           ),
         ],
       ),
-      body: Words(words: solutions),
+      body: Column(
+        children: [
+          Expanded(child: Words(words: solutions)),
+        ],
+      ),
     );
   }
 }

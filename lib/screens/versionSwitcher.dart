@@ -22,8 +22,14 @@ class VersionSwitcher extends StatelessWidget {
         itemBuilder: (context, index) {
           Version version = kVersions[index];
           return ListTile(
+            leading: Text(
+              version.flag,
+              style: const TextStyle(fontSize: 30.0),
+            ),
             title: Text(version.fullName),
             trailing: IconButton(
+              iconSize: 30.0,
+              color: Colors.blue,
               icon: const Icon(Icons.link),
               onPressed: () {
                 launchUrl(Uri.parse(version.url));
