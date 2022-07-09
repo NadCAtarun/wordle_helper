@@ -3,8 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:wordle_helper/version.dart';
 
 class VersionSwitcher extends StatelessWidget {
-  static const String routeName = '/switch';
-
   final void Function(Version)? onChoice;
 
   const VersionSwitcher({
@@ -31,6 +29,11 @@ class VersionSwitcher extends StatelessWidget {
                 launchUrl(Uri.parse(version.url));
               },
             ),
+            onTap: () {
+              if (onChoice != null) {
+                onChoice!(version);
+              }
+            },
           );
         },
       ),

@@ -7,8 +7,6 @@ import 'package:wordle_helper/version.dart';
 import 'package:wordle_helper/words.dart';
 
 class Helper extends StatefulWidget {
-  static const String routeName = '/';
-
   const Helper({Key? key}) : super(key: key);
 
   @override
@@ -46,7 +44,18 @@ class _HelperState extends State<Helper> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, VersionSwitcher.routeName);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => VersionSwitcher(
+                    onChoice: (newVersion) {
+                      version = newVersion;
+                      loadSolutions();
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              );
             },
             icon: const Icon(Icons.language),
           ),
