@@ -42,7 +42,7 @@ class _HelperState extends State<Helper> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'Wordle Helper',
+          kAppTitle,
           style: kAppBarTitleStyle,
         ),
         actions: [

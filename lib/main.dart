@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wordle_helper/constants.dart';
 import 'package:wordle_helper/screens/helper.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Wordle Helper',
+      title: kAppTitle,
       theme: ThemeData.dark(),
       home: const Helper(),
     );
